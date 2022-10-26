@@ -1,28 +1,32 @@
 package com.javarush.test;
 
-import java.util.Scanner;
 public class solution {
-    public static String[] strings;
+    public static int[][] MULTIPLICATION_TABLE;
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        //напишите тут ваш код
+       /* MULTIPLICATION_TABLE = new int[][] {{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+                                            {2, 4, 6, 8, 10, 12, 14, 16, 18, 20}
 
-        strings = new String[3];
-        for (int i = 0; i < 3; i++) {
-            strings[i] = scanner.nextLine();
         }
-        for (int i=0; i<3; i++) {
-            String peremstr = strings[i];
-            for (int j = i + 1; j < 3; j++) {
-                if (peremstr.equals(strings[j])) {
-                    strings[j] = null;
-                    strings[i] = null;
-                }
-                if (peremstr == null) break;
+        */
+        MULTIPLICATION_TABLE = new int[10][10];
+        for (int k = 0; k < 10; k++) {
+            MULTIPLICATION_TABLE[0][k] = k + 1;
+        }
+        for (int i = 1; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                MULTIPLICATION_TABLE[i][j] = MULTIPLICATION_TABLE[0][j] * (i + 1);
             }
+
+
+
         }
-        for (int i = 0; i < strings.length; i++) {
-            System.out.print(strings[i] + ", ");
+        for (int m = 0; m < 10; m++) {
+            for (int n = 0; n < 10; n++) {
+                System.out.print(MULTIPLICATION_TABLE[m][n] + " ");
+            }
+            System.out.println();
         }
     }
-    }
+}
