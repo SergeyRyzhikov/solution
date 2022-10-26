@@ -2,26 +2,27 @@ package com.javarush.test;
 
 import java.util.Scanner;
 public class solution {
-        public static int [] array;
+    public static String[] strings;
 
     public static void main(String[] args) {
-        //напишите тут ваш код
-        Scanner console = new Scanner(System.in);
-        System.out.print("Введите размер массива: ");
-        int N = console.nextInt();
-        array = new int[N];
-        System.out.println("Заполните массив числами: ");
-        for (int i = 0; i < N; i++) {
-            System.out.print("Введите элемент № "+(i+1) + ": ");
-            array[i] = console.nextInt();
-        }
-        int min;
-        min = array[0];
-            for (int i=1; i<N; i++) {
-                if (array[i]<min)
-                    min = array[i];
-            }
-        System.out.print("Минимальный элемент: " + min);
+        Scanner scanner = new Scanner(System.in);
 
+        strings = new String[3];
+        for (int i = 0; i < 3; i++) {
+            strings[i] = scanner.nextLine();
         }
+        for (int i=0; i<3; i++) {
+            String peremstr = strings[i];
+            for (int j = i + 1; j < 3; j++) {
+                if (peremstr.equals(strings[j])) {
+                    strings[j] = null;
+                    strings[i] = null;
+                }
+                if (peremstr == null) break;
+            }
+        }
+        for (int i = 0; i < strings.length; i++) {
+            System.out.print(strings[i] + ", ");
+        }
+    }
     }
